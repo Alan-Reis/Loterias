@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using SeleniumWebScrapting.Model;
 using System;
 
 namespace SeleniumWebScrapting
@@ -13,84 +14,89 @@ namespace SeleniumWebScrapting
 
             int tr = 2319;
             int td = 17;
-                    
+
+            ResultadoLotofacil resultado = new ResultadoLotofacil();
 
             for (int i = 0; i <= tr; i++)
             {
-                for(int j = 0; j <= td; j++)
+                for (int j = 0; j <= td; j++)
                 {
                     var table = driver.FindElements(By.CssSelector("body > table > tbody > tr:nth-child(" + i + ") > td:nth-child(" + j + ")"));
 
                     foreach (var item in table)
                     {
-                       switch (j)
+                        switch (j)
                         {
                             case 1:
-                                 string consurso = item.Text;
+                                resultado.Consurso = item.Text;
                                 break;
                             case 2:
-                                string data = item.Text;
+                                resultado.Data = item.Text;
                                 break;
                             case 3:
-                                string dezena01 = item.Text;
+                                resultado.Dezena01 = item.Text;
                                 break;
                             case 4:
-                                string dezena02 = item.Text;
+                                resultado.Dezena02 = item.Text;
                                 break;
                             case 5:
-                                string dezena03 = item.Text;
+                                resultado.Dezena03 = item.Text;
                                 break;
                             case 6:
-                                string dezena04 = item.Text;
+                                resultado.Dezena04 = item.Text;
                                 break;
                             case 7:
-                                string dezena05 = item.Text;
+                                resultado.Dezena05 = item.Text;
                                 break;
                             case 8:
-                                string dezena06 = item.Text;
+                                resultado.Dezena06 = item.Text;
                                 break;
                             case 9:
-                                string dezena07 = item.Text;
+                                resultado.Dezena07 = item.Text;
                                 break;
                             case 10:
-                                string dezena08 = item.Text;
+                                resultado.Dezena08 = item.Text;
                                 break;
                             case 11:
-                                string dezena09 = item.Text;
+                                resultado.Dezena09 = item.Text;
                                 break;
                             case 12:
-                                string dezena10 = item.Text;
+                                resultado.Dezena10 = item.Text;
                                 break;
                             case 13:
-                                string dezena11 = item.Text;
+                                resultado.Dezena11 = item.Text;
                                 break;
                             case 14:
-                                string dezena12 = item.Text;
+                                resultado.Dezena12 = item.Text;
                                 break;
                             case 15:
-                                string dezena13 = item.Text;
+                                resultado.Dezena13 = item.Text;
                                 break;
                             case 16:
-                                string dezena14 = item.Text;
+                                resultado.Dezena14 = item.Text;
                                 break;
                             case 17:
-                                string dezena15 = item.Text;
+                                resultado.Dezena15 = item.Text;
                                 break;
                             case 18:
-                                string arecadacao = item.Text;
+                                resultado.Arrecadacao = item.Text;
                                 break;
                             case 19:
-                                string ganhadores = item.Text;
-                                break;                            
-                        }                      
+                                resultado.Ganhadores = item.Text;
+                                break;
+                        }
 
                     }
                 }
-                
+
             }
+
+            
 
             driver.Close();
 
         }
+
+
     }
 }
