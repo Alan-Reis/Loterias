@@ -28,4 +28,5 @@ namespace SeleniumWebScrapting.Model
         public string Arrecadacao { get; set; }
         public string Ganhadores { get; set; }
     }
+       
 }
