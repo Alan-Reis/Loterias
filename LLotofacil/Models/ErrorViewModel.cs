@@ -1,6 +1,6 @@
 using System;
 
-namespace Lotofacil.Models
+namespace LLotofacil.Models
 {
     public class ErrorViewModel
     {

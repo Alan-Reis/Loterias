@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Lotofacil
+namespace LLotofacil
 {
     public class Program
     {

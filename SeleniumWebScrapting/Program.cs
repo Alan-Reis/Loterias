@@ -23,7 +23,8 @@ namespace SeleniumWebScrapting
             ResultadoLotofacil resultado = new ResultadoLotofacil();
 
             //percorre quantidade de jogos (linha)
-            for (int i = 2318; i <= tr; i++)
+            //o valor de (i) é número do concurso que deseja pegar até o atual
+            for (int i = 1; i <= tr; i++)
             {
                 //percorre as colunas, nesse caso setando até 19
                 for (int j = 1; j <= td; j++)
@@ -132,7 +133,7 @@ namespace SeleniumWebScrapting
 
                     //abre a conexao
                     con.Open();
-                    Console.WriteLine("Conexão estabelecida com sucesso!" + tr);
+                    Console.WriteLine("Conexão estabelecida com sucesso!" + resultado.Consurso);
                     //executa o comando com os parametros que foram adicionados acima
                     cmd.ExecuteNonQuery();
                     //fecha a conexao
@@ -147,4 +148,3 @@ namespace SeleniumWebScrapting
         }
     }
 }
-

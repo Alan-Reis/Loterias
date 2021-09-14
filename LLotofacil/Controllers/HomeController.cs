@@ -1,4 +1,4 @@
-﻿using Lotofacil.Models;
+﻿using LLotofacil.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Lotofacil.Controllers
+namespace LLotofacil.Controllers
 {
     public class HomeController : Controller
     {
