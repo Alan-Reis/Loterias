@@ -13,6 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loterica.Business", "Loteri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LLotofacil", "LLotofacil\LLotofacil.csproj", "{581DF173-5B04-441D-94C4-0BBC4F22C4F2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Command", "Command", "{04D9D01A-4162-4879-BB86-6EF4CC432A5D}"
+	ProjectSection(SolutionItems) = preProject
+		Info.txt = Info.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -1,0 +1,1 @@
+Scaffold-DbContext "Server=DESKTOP-0H4J542\\SQLEXPRESS;Database=DBLoterica;Trusted_Connection=True;MultipleActiveResultSet=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
