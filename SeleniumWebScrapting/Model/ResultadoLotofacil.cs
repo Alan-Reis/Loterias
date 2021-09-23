@@ -8,7 +8,7 @@ namespace SeleniumWebScrapting.Model
 {
     class ResultadoLotofacil
     {
-        public string Consurso { get; set; }
+        public int Consurso { get; set; }
         public string Data { get; set; }
         public string Dezena01 { get; set; }
         public string Dezena02 { get; set; }

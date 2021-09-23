@@ -13,7 +13,7 @@ namespace Loterica.Data
         public DbSet<Concurso> Concursos { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-0H4J542\SQLEXPRESS;Initial Catalog=DBLoterica;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-7KH1TOI\SQLEXPRESS;Initial Catalog=DBLoterica;Integrated Security=True");
         }
     }
 }

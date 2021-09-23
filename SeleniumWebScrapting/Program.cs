@@ -16,7 +16,7 @@ namespace SeleniumWebScrapting
             driver.Navigate().GoToUrl("http://loterias.caixa.gov.br/wps/portal/loterias/landing/lotofacil/!ut/p/a1/04_Sj9CPykssy0xPLMnMz0vMAfGjzOLNDH0MPAzcDbz8vTxNDRy9_Y2NQ13CDA0sTIEKIoEKnN0dPUzMfQwMDEwsjAw8XZw8XMwtfQ0MPM2I02-AAzgaENIfrh-FqsQ9wBmoxN_FydLAGAgNTKEK8DkRrACPGwpyQyMMMj0VAcySpRM!/dl5/d5/L2dBISEvZ0FBIS9nQSEh/pw/Z7_HGK818G0K85260Q5OIRSC42046/res/id=historicoHTML/c=cacheLevelPage/=/");
 
             //número de concurso +1
-            int tr = 2320;
+            int tr = 2330;
             //número da coluna até onde deseja pegar
             int td = 19;
 
@@ -38,7 +38,7 @@ namespace SeleniumWebScrapting
                         switch (j)
                         {
                             case 1:
-                                resultado.Consurso = item.Text;
+                                resultado.Consurso = Convert.ToInt32(item.Text);
                                 break;
                             case 2:
                                 resultado.Data = item.Text;
@@ -99,10 +99,10 @@ namespace SeleniumWebScrapting
                 }
                 
                 //definição da string de conexão
-                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-0H4J542\SQLEXPRESS;Initial Catalog=DBLoterica;Integrated Security=True");
+                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-7KH1TOI\SQLEXPRESS;Initial Catalog=DBLoterica;Integrated Security=True");
 
                 //definição do comando sql
-                string sql = "INSERT INTO tbl_Lotofacil(ConcursoID, Data, Dezena_01, Dezena_02, Dezena_03, Dezena_04, Dezena_05, Dezena_06, Dezena_07, Dezena_08, Dezena_09, Dezena_10, Dezena_11, Dezena_12, Dezena_13, Dezena_14, Dezena_15, Arrecadacao, Ganhadores) " +
+                string sql = "INSERT INTO LotofacilConcursos(ConcursoID, Data, Dezena_01, Dezena_02, Dezena_03, Dezena_04, Dezena_05, Dezena_06, Dezena_07, Dezena_08, Dezena_09, Dezena_10, Dezena_11, Dezena_12, Dezena_13, Dezena_14, Dezena_15, Arrecadacao, Ganhadores) " +
                 "Values(@Concurso, @Data, @Dezena01, @Dezena02, @Dezena03, @Dezena04, @Dezena05, @Dezena06, @Dezena07, @Dezena08, @Dezena09, @Dezena10, @Dezena11, @Dezena12, @Dezena13, @Dezena14, @Dezena15, @Arrecadacao, @Ganhadores)";
 
                 try
