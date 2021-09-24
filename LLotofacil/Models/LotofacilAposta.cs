@@ -10,7 +10,7 @@ namespace LLotofacil.Models
     {
         [Key]
         public int ApostaID { get; set; }
-        public LotofacilConcurso ConcursoID { get; set; }
+        public string ConcursoID { get; set; }
         public string Data { get; set; }
         public string Dezena_01 { get; set; }
         public string Dezena_02 { get; set; }
