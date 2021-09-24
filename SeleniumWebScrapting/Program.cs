@@ -24,7 +24,7 @@ namespace SeleniumWebScrapting
 
             //percorre quantidade de jogos (linha)
             //o valor de (i) é número do concurso que deseja pegar até o atual
-            for (int i = 1; i <= tr; i++)
+            for (int i = 2327; i <= tr; i++)
             {
                 //percorre as colunas, nesse caso setando até 19
                 for (int j = 1; j <= td; j++)
@@ -97,7 +97,7 @@ namespace SeleniumWebScrapting
                         }
                     }
                 }
-                
+                                
                 //definição da string de conexão
                 SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-7KH1TOI\SQLEXPRESS;Initial Catalog=DBLoterica;Integrated Security=True");
 
@@ -146,5 +146,7 @@ namespace SeleniumWebScrapting
             }
             driver.Close();
         }
+
+      
     }
 }
