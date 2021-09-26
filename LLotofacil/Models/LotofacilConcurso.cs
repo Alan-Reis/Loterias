@@ -1,12 +1,17 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LLotofacil.Models
 {
     public class LotofacilConcurso
     {
+        //Esse atributo permite inserir a PK para o curso em vez de fazer com que o banco de dados o gere.
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Key]
         public int ConcursoID { get; set; }
-        public string Data { get; set; }
+        public DateTime Data { get; set; }
         public string Dezena_01 { get; set; }
         public string Dezena_02 { get; set; }
         public string Dezena_03 { get; set; }
@@ -24,5 +29,7 @@ namespace LLotofacil.Models
         public string Dezena_15 { get; set; }
         public string Arrecadacao { get; set; }
         public string Ganhadores { get; set; }
+
+        public ICollection<ApostaConcurso> ApostasConcursos { get; set; }
     }
 }

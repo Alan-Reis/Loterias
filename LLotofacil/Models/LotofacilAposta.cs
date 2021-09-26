@@ -10,8 +10,9 @@ namespace LLotofacil.Models
     {
         [Key]
         public int ApostaID { get; set; }
-        public string ConcursoID { get; set; }
-        public string Data { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime Data { get; set; }
         public string Dezena_01 { get; set; }
         public string Dezena_02 { get; set; }
         public string Dezena_03 { get; set; }
@@ -30,5 +31,7 @@ namespace LLotofacil.Models
         public string Valor { get; set; }
         public string Pontuacao { get; set; }
         public string Ganho { get; set; }
+
+        public ICollection<ApostaConcurso> ApostasConcursos { get; set; } 
     }
 }
