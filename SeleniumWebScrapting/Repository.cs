@@ -1,4 +1,4 @@
-﻿using SeleniumWebScrapting.Model;
+﻿using ClassLibraryLoterica.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -67,7 +67,7 @@ namespace SeleniumWebScrapting
 
         public int GetConcurso()
         {
-            ResultadoLotofacil resultado = new ResultadoLotofacil();
+            Lotofacil resultado = new Lotofacil();
 
             //definição da string de conexão
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-7KH1TOI\SQLEXPRESS;Initial Catalog=DBLoterica;Integrated Security=True");

@@ -1,7 +1,7 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using ClassLibraryLoterica.Models;
+using Microsoft.Data.SqlClient;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using SeleniumWebScrapting.Model;
 using System;
 using System.Data;
 
@@ -29,7 +29,7 @@ namespace SeleniumWebScrapting
             int td = 19;
 
 
-            ResultadoLotofacil resultado = new ResultadoLotofacil();
+            Lotofacil resultado = new Lotofacil();
             
             //percorre quantidade de jogos (linha)
             //pega o último concurso na tabela 

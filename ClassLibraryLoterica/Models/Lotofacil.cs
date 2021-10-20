@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SeleniumWebScrapting.Model
+namespace ClassLibraryLoterica.Models
 {
-    class ResultadoLotofacil
+    public class Lotofacil
     {
         public int Consurso { get; set; }
         public string Data { get; set; }

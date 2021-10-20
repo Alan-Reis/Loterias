@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumWebScrapting", "SeleniumWebScrapting\SeleniumWebScrapting.csproj", "{4ADD8843-8BEF-4266-B621-254FC9BAEF9B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryLoterica", "ClassLibraryLoterica\ClassLibraryLoterica.csproj", "{4F84063C-9C39-4DBC-9231-CA86CA8DAFDF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4ADD8843-8BEF-4266-B621-254FC9BAEF9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4ADD8843-8BEF-4266-B621-254FC9BAEF9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4ADD8843-8BEF-4266-B621-254FC9BAEF9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F84063C-9C39-4DBC-9231-CA86CA8DAFDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F84063C-9C39-4DBC-9231-CA86CA8DAFDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F84063C-9C39-4DBC-9231-CA86CA8DAFDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F84063C-9C39-4DBC-9231-CA86CA8DAFDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
