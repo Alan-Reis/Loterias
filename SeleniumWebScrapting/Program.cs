@@ -11,20 +11,29 @@ namespace SeleniumWebScrapting
     {
         static void Main(string[] args)
         {
+            Repository repository = new Repository();
+
+            //último concurso no banco de dados
+            int bdConcurso = repository.GetConcurso();
+
             IWebDriver driver = new ChromeDriver();
             //colocar a url que deseja fazer o scraping
             driver.Navigate().GoToUrl("http://loterias.caixa.gov.br/wps/portal/loterias/landing/lotofacil/!ut/p/a1/04_Sj9CPykssy0xPLMnMz0vMAfGjzOLNDH0MPAzcDbz8vTxNDRy9_Y2NQ13CDA0sTIEKIoEKnN0dPUzMfQwMDEwsjAw8XZw8XMwtfQ0MPM2I02-AAzgaENIfrh-FqsQ9wBmoxN_FydLAGAgNTKEK8DkRrACPGwpyQyMMMj0VAcySpRM!/dl5/d5/L2dBISEvZ0FBIS9nQSEh/pw/Z7_HGK818G0K85260Q5OIRSC42046/res/id=historicoHTML/c=cacheLevelPage/=/");
 
-            //número de concurso +1
-            int tr = 2330;
+            //pega o último concurso sorteado
+            var totalConcurso = driver.FindElements(By.CssSelector("body > table > tbody > tr"));      
+            
+            //número de concurso
+            int tr = Convert.ToInt32(totalConcurso.Count);
             //número da coluna até onde deseja pegar
             int td = 19;
 
-            ResultadoLotofacil resultado = new ResultadoLotofacil();
 
+            ResultadoLotofacil resultado = new ResultadoLotofacil();
+            
             //percorre quantidade de jogos (linha)
-            //o valor de (i) é número do concurso que deseja pegar até o atual
-            for (int i = 2327; i <= tr; i++)
+            //pega o último concurso na tabela 
+            for (int i = bdConcurso; i <= tr; i++)
             {
                 //percorre as colunas, nesse caso setando até 19
                 for (int j = 1; j <= td; j++)
@@ -97,52 +106,11 @@ namespace SeleniumWebScrapting
                         }
                     }
                 }
-                                
-                //definição da string de conexão
-                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-7KH1TOI\SQLEXPRESS;Initial Catalog=DBLoterica;Integrated Security=True");
 
-                //definição do comando sql
-                string sql = "INSERT INTO LotofacilConcursos(ConcursoID, Data, Dezena_01, Dezena_02, Dezena_03, Dezena_04, Dezena_05, Dezena_06, Dezena_07, Dezena_08, Dezena_09, Dezena_10, Dezena_11, Dezena_12, Dezena_13, Dezena_14, Dezena_15, Arrecadacao, Ganhadores) " +
-                "Values(@Concurso, @Data, @Dezena01, @Dezena02, @Dezena03, @Dezena04, @Dezena05, @Dezena06, @Dezena07, @Dezena08, @Dezena09, @Dezena10, @Dezena11, @Dezena12, @Dezena13, @Dezena14, @Dezena15, @Arrecadacao, @Ganhadores)";
-
-                try
-                {                  
-                    //Cria uma objeto do tipo comando passando como parametro a string sql e a string de conexão
-                    SqlCommand cmd = new SqlCommand(sql, con);
-
-                    //passa os valores da variaveis para os valores do insert
-                    cmd.Parameters.Add(new SqlParameter("@Concurso", resultado.Consurso));
-                    cmd.Parameters.Add(new SqlParameter("@Data", resultado.Data));
-                    cmd.Parameters.Add(new SqlParameter("@Dezena01", resultado.Dezena01));
-                    cmd.Parameters.Add(new SqlParameter("@Dezena02", resultado.Dezena02));
-                    cmd.Parameters.Add(new SqlParameter("@Dezena03", resultado.Dezena03));
-                    cmd.Parameters.Add(new SqlParameter("@Dezena04", resultado.Dezena04));
-                    cmd.Parameters.Add(new SqlParameter("@Dezena05", resultado.Dezena05));
-                    cmd.Parameters.Add(new SqlParameter("@Dezena06", resultado.Dezena06));
-                    cmd.Parameters.Add(new SqlParameter("@Dezena07", resultado.Dezena07));
-                    cmd.Parameters.Add(new SqlParameter("@Dezena08", resultado.Dezena08));
-                    cmd.Parameters.Add(new SqlParameter("@Dezena09", resultado.Dezena09));
-                    cmd.Parameters.Add(new SqlParameter("@Dezena10", resultado.Dezena10));
-                    cmd.Parameters.Add(new SqlParameter("@Dezena11", resultado.Dezena11));
-                    cmd.Parameters.Add(new SqlParameter("@Dezena12", resultado.Dezena12));
-                    cmd.Parameters.Add(new SqlParameter("@Dezena13", resultado.Dezena13));
-                    cmd.Parameters.Add(new SqlParameter("@Dezena14", resultado.Dezena14));
-                    cmd.Parameters.Add(new SqlParameter("@Dezena15", resultado.Dezena15));
-                    cmd.Parameters.Add(new SqlParameter("@Arrecadacao", resultado.Arrecadacao));
-                    cmd.Parameters.Add(new SqlParameter("@Ganhadores", resultado.Ganhadores));
-
-                    //abre a conexao
-                    con.Open();
-                    Console.WriteLine("Conexão estabelecida com sucesso!" + resultado.Consurso);
-                    //executa o comando com os parametros que foram adicionados acima
-                    cmd.ExecuteNonQuery();
-                    //fecha a conexao
-                    con.Close();
-                }
-                catch(Exception ex)
-                {
-                    Console.WriteLine("Conexão falhou!" + ex);
-                }
+                repository.Inserir(resultado.Consurso, resultado.Data, resultado.Dezena01, resultado.Dezena02, resultado.Dezena03,
+                                   resultado.Dezena04, resultado.Dezena05, resultado.Dezena06, resultado.Dezena07, resultado.Dezena08, 
+                                   resultado.Dezena09, resultado.Dezena10, resultado.Dezena11, resultado.Dezena12, resultado.Dezena13, 
+                                   resultado.Dezena14, resultado.Dezena15, resultado.Arrecadacao, resultado.Ganhadores);
             }
             driver.Close();
         }

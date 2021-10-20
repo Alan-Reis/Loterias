@@ -1,0 +1,124 @@
+﻿@model LLotofacil.Models.LotofacilAposta
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>LotofacilAposta</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ApostaID" />
+            <div class="form-group">
+                <label asp-for="Data" class="control-label"></label>
+                <input asp-for="Data" class="form-control" />
+                <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dezena_01" class="control-label"></label>
+                <input asp-for="Dezena_01" class="form-control" />
+                <span asp-validation-for="Dezena_01" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dezena_02" class="control-label"></label>
+                <input asp-for="Dezena_02" class="form-control" />
+                <span asp-validation-for="Dezena_02" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dezena_03" class="control-label"></label>
+                <input asp-for="Dezena_03" class="form-control" />
+                <span asp-validation-for="Dezena_03" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dezena_04" class="control-label"></label>
+                <input asp-for="Dezena_04" class="form-control" />
+                <span asp-validation-for="Dezena_04" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dezena_05" class="control-label"></label>
+                <input asp-for="Dezena_05" class="form-control" />
+                <span asp-validation-for="Dezena_05" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dezena_06" class="control-label"></label>
+                <input asp-for="Dezena_06" class="form-control" />
+                <span asp-validation-for="Dezena_06" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dezena_07" class="control-label"></label>
+                <input asp-for="Dezena_07" class="form-control" />
+                <span asp-validation-for="Dezena_07" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dezena_08" class="control-label"></label>
+                <input asp-for="Dezena_08" class="form-control" />
+                <span asp-validation-for="Dezena_08" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dezena_09" class="control-label"></label>
+                <input asp-for="Dezena_09" class="form-control" />
+                <span asp-validation-for="Dezena_09" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dezena_10" class="control-label"></label>
+                <input asp-for="Dezena_10" class="form-control" />
+                <span asp-validation-for="Dezena_10" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dezena_11" class="control-label"></label>
+                <input asp-for="Dezena_11" class="form-control" />
+                <span asp-validation-for="Dezena_11" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dezena_12" class="control-label"></label>
+                <input asp-for="Dezena_12" class="form-control" />
+                <span asp-validation-for="Dezena_12" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dezena_13" class="control-label"></label>
+                <input asp-for="Dezena_13" class="form-control" />
+                <span asp-validation-for="Dezena_13" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dezena_14" class="control-label"></label>
+                <input asp-for="Dezena_14" class="form-control" />
+                <span asp-validation-for="Dezena_14" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dezena_15" class="control-label"></label>
+                <input asp-for="Dezena_15" class="form-control" />
+                <span asp-validation-for="Dezena_15" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Valor" class="control-label"></label>
+                <input asp-for="Valor" class="form-control" />
+                <span asp-validation-for="Valor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pontuacao" class="control-label"></label>
+                <input asp-for="Pontuacao" class="form-control" />
+                <span asp-validation-for="Pontuacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ganho" class="control-label"></label>
+                <input asp-for="Ganho" class="form-control" />
+                <span asp-validation-for="Ganho" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

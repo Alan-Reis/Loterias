@@ -1,5 +1,6 @@
 ﻿using LLotofacil.Models;
 using LLotofacil.Services;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,15 @@ namespace LLotofacil.Repository
         public LotofacilConcurso GetConcurso(int Id)
         {
             LotofacilConcurso dbEntity = db.LotofacilConcursos.Find(Id);
+            return dbEntity;
+        }
+
+        public LotofacilConcurso GetDetalhar(int Id)
+        {
+            var dbEntity = db.LotofacilConcursos
+                .Include(s => s.ConcursoID)
+                .AsNoTracking()
+                .SingleOrDefault(m => m.ConcursoID == Id);
             return dbEntity;
         }
 

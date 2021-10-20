@@ -17,11 +17,13 @@ namespace LLotofacil.Controllers
         
         public IActionResult Index()
         {
-            return View(_Concurso.GetConcursos);
+            return View();
         }
         public IActionResult Resultados()
         {
             return View(_Concurso.GetConcursos);
         }
+
+
     }
 }
