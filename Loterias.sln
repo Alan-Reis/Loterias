@@ -5,7 +5,13 @@ VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumWebScrapting", "SeleniumWebScrapting\SeleniumWebScrapting.csproj", "{4ADD8843-8BEF-4266-B621-254FC9BAEF9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryLoterica", "ClassLibraryLoterica\ClassLibraryLoterica.csproj", "{4F84063C-9C39-4DBC-9231-CA86CA8DAFDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibraryLoterica", "ClassLibraryLoterica\ClassLibraryLoterica.csproj", "{4F84063C-9C39-4DBC-9231-CA86CA8DAFDF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LLotofacil", "LLotofacil\LLotofacil.csproj", "{4145AB34-80D3-4633-B7CA-1A387B244F63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryRepository", "ClassLibraryRepository\ClassLibraryRepository.csproj", "{AC32C4B7-5D44-4E0E-A622-E98D6D0AE7E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryService", "ClassLibraryService\ClassLibraryService.csproj", "{B8643123-1807-46ED-A597-27E56AF7F101}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{4F84063C-9C39-4DBC-9231-CA86CA8DAFDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F84063C-9C39-4DBC-9231-CA86CA8DAFDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F84063C-9C39-4DBC-9231-CA86CA8DAFDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4145AB34-80D3-4633-B7CA-1A387B244F63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4145AB34-80D3-4633-B7CA-1A387B244F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4145AB34-80D3-4633-B7CA-1A387B244F63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4145AB34-80D3-4633-B7CA-1A387B244F63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC32C4B7-5D44-4E0E-A622-E98D6D0AE7E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC32C4B7-5D44-4E0E-A622-E98D6D0AE7E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC32C4B7-5D44-4E0E-A622-E98D6D0AE7E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC32C4B7-5D44-4E0E-A622-E98D6D0AE7E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8643123-1807-46ED-A597-27E56AF7F101}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8643123-1807-46ED-A597-27E56AF7F101}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8643123-1807-46ED-A597-27E56AF7F101}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8643123-1807-46ED-A597-27E56AF7F101}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
