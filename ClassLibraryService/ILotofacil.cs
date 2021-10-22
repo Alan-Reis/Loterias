@@ -8,6 +8,6 @@ namespace ClassLibraryService
     public interface ILotofacil
     {
         IEnumerable<Lotofacil> GetAllConcursos();
-        Lotofacil GetConcurso(int? concurso);
+        Lotofacil GetConcurso(int? id);
     }
 }

@@ -1,3 +1,6 @@
+using ClassLibraryLoterica.Models;
+using ClassLibraryRepository;
+using ClassLibraryService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,6 +26,9 @@ namespace LLotofacil
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<ILotofacil, RepositoryLotofacil>();
+
+
             services.AddControllersWithViews();
         }
 
