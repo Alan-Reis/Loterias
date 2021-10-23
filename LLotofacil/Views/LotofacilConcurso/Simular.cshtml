@@ -1,0 +1,199 @@
+﻿@model ClassLibraryLoterica.Models.Lotofacil
+
+@{
+    ViewData["Title"] = "Simular";
+}
+
+<h1>Simular</h1>
+
+<h4>Lotofácil</h4>
+<hr />
+@using (Html.BeginForm("Simular", "LotofacilConcurso", FormMethod.Post))
+{
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <th colspan="2" align="center">Digite o jogo:</th>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(m => m.Dezena_01)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Dezena_02)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Dezena_03)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Dezena_04)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Dezena_05)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(m => m.Dezena_06)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Dezena_07)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Dezena_08)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Dezena_09)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Dezena_10)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(m => m.Dezena_11)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Dezena_12)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Dezena_13)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Dezena_14)
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Dezena_15)
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Enviar"/></td>
+        </tr>
+    </table>
+}
+
+<div>
+    <h4>Resultado</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ConcursoID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ConcursoID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dezena_01)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dezena_01)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dezena_02)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dezena_02)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dezena_03)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dezena_03)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dezena_04)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dezena_04)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dezena_05)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dezena_05)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dezena_06)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dezena_06)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dezena_07)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dezena_07)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dezena_08)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dezena_08)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dezena_09)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dezena_09)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dezena_10)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dezena_10)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dezena_11)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dezena_11)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dezena_12)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dezena_12)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dezena_13)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dezena_13)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dezena_14)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dezena_14)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dezena_15)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dezena_15)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Arrecadacao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Arrecadacao)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ganhadores)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ganhadores)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Retornar</a>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

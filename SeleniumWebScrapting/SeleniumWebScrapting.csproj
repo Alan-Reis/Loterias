@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ClassLibraryLoterica\ClassLibraryLoterica.csproj" />
+    <ProjectReference Include="..\ClassLibraryRepository\ClassLibraryRepository.csproj" />
   </ItemGroup>
 
 </Project>
