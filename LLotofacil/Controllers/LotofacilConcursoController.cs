@@ -47,7 +47,7 @@ namespace LLotofacil.Controllers
                                                int? Dezena_09, int? Dezena_10, int? Dezena_11, int? Dezena_12, int? Dezena_13, int? Dezena_14, int? Dezena_15)
    {
 
-            Lotofacil lotofacil = concurso.ScannerConcurso(Dezena_01, Dezena_02, Dezena_03, Dezena_04, Dezena_05, Dezena_06,
+            Lotofacil lotofacil = concurso.GetPontos15(Dezena_01, Dezena_02, Dezena_03, Dezena_04, Dezena_05, Dezena_06,
                 Dezena_07, Dezena_08, Dezena_09, Dezena_10, Dezena_11, Dezena_12, Dezena_13, Dezena_14, Dezena_15);
 
             if (lotofacil == null)

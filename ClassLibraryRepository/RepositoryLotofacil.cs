@@ -54,17 +54,18 @@ namespace ClassLibraryRepository
             return concursos;
         }
 
-        public Lotofacil ScannerConcurso(int? Dezena_01, int? Dezena_02, int? Dezena_03, int? Dezena_04, int? Dezena_05, int? Dezena_06, int? Dezena_07, int? Dezena_08,
-                                               int? Dezena_09, int? Dezena_10, int? Dezena_11, int? Dezena_12, int? Dezena_13, int? Dezena_14, int? Dezena_15)
-  
+        public Lotofacil GetPontos15(int? Dezena_01, int? Dezena_02, int? Dezena_03, int? Dezena_04, int? Dezena_05,
+                                     int? Dezena_06, int? Dezena_07, int? Dezena_08, int? Dezena_09, int? Dezena_10, 
+                                     int? Dezena_11, int? Dezena_12, int? Dezena_13, int? Dezena_14, int? Dezena_15)
+
         {
             Lotofacil concurso = new Lotofacil();
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "SELECT * FROM ScannerConcursos("+ Dezena_01 + ","+ Dezena_02 + ","+ Dezena_03 + ","+ Dezena_04 + ","+ Dezena_05 + ","+ Dezena_06 + "," +
-                    ""+ Dezena_07 + ","+ Dezena_08 + ","+ Dezena_09 + ","+ Dezena_10 + ","+ Dezena_11 + ","+ Dezena_12 + ","+ Dezena_13 + ","+ Dezena_14 + ","+ Dezena_15 + ")";
-                
+                string query = "SELECT * FROM PONTOS15(" + Dezena_01 + "," + Dezena_02 + "," + Dezena_03 + "," + Dezena_04 + "," + Dezena_05 + "," + Dezena_06 + "," +
+                    "" + Dezena_07 + "," + Dezena_08 + "," + Dezena_09 + "," + Dezena_10 + "," + Dezena_11 + "," + Dezena_12 + "," + Dezena_13 + "," + Dezena_14 + "," + Dezena_15 + ")";
+
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 con.Open();
@@ -97,10 +98,56 @@ namespace ClassLibraryRepository
                 {
 
                 }
-              
                 con.Close();
             }
             return concurso;
+        }
+
+        public IEnumerable<Lotofacil> GetPontos(int? Dezena_01, int? Dezena_02, int? Dezena_03, int? Dezena_04, int? Dezena_05,
+                                                int? Dezena_06, int? Dezena_07, int? Dezena_08, int? Dezena_09, int? Dezena_10,
+                                                int? Dezena_11, int? Dezena_12, int? Dezena_13, int? Dezena_14, int? Dezena_15)
+
+        {
+            List<Lotofacil> concursos = new List<Lotofacil>();
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM PONTOS(" + Dezena_01 + "," + Dezena_02 + "," + Dezena_03 + "," + Dezena_04 + "," + Dezena_05 + "," + Dezena_06 + "," +
+                    "" + Dezena_07 + "," + Dezena_08 + "," + Dezena_09 + "," + Dezena_10 + "," + Dezena_11 + "," + Dezena_12 + "," + Dezena_13 + "," + Dezena_14 + "," + Dezena_15 + ")";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.CommandType = CommandType.Text;
+                con.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    Lotofacil lotofacil = new Lotofacil();
+                    lotofacil.ConcursoID = Convert.ToInt32(rdr["ConcursoID"]);
+                    lotofacil.Data = String.Format("{0:dd/MM/yyyy}", rdr["Data"]);
+                    lotofacil.ConcursoID = Convert.ToInt32(rdr["ConcursoID"]);
+                    lotofacil.Data = String.Format("{0:dd/MM/yyyy}", rdr["Data"]);
+                    lotofacil.Dezena_01 = Convert.ToInt32(rdr["Dezena_01"].ToString());
+                    lotofacil.Dezena_02 = Convert.ToInt32(rdr["Dezena_02"].ToString());
+                    lotofacil.Dezena_03 = Convert.ToInt32(rdr["Dezena_03"].ToString());
+                    lotofacil.Dezena_04 = Convert.ToInt32(rdr["Dezena_04"].ToString());
+                    lotofacil.Dezena_05 = Convert.ToInt32(rdr["Dezena_05"].ToString());
+                    lotofacil.Dezena_06 = Convert.ToInt32(rdr["Dezena_06"].ToString());
+                    lotofacil.Dezena_07 = Convert.ToInt32(rdr["Dezena_07"].ToString());
+                    lotofacil.Dezena_08 = Convert.ToInt32(rdr["Dezena_08"].ToString());
+                    lotofacil.Dezena_09 = Convert.ToInt32(rdr["Dezena_09"].ToString());
+                    lotofacil.Dezena_10 = Convert.ToInt32(rdr["Dezena_10"].ToString());
+                    lotofacil.Dezena_11 = Convert.ToInt32(rdr["Dezena_11"].ToString());
+                    lotofacil.Dezena_12 = Convert.ToInt32(rdr["Dezena_12"].ToString());
+                    lotofacil.Dezena_13 = Convert.ToInt32(rdr["Dezena_13"].ToString());
+                    lotofacil.Dezena_14 = Convert.ToInt32(rdr["Dezena_14"].ToString());
+                    lotofacil.Dezena_15 = Convert.ToInt32(rdr["Dezena_15"].ToString());
+                    //lotofacil.Arrecadacao = rdr["Arrecadacao"].ToString();
+                    //lotofacil.Ganhadores = Convert.ToInt32(rdr["Ganhadores"].ToString());
+                    concursos.Add(lotofacil);
+                }
+                con.Close();
+            }
+            return concursos;
         }
 
         public int GetConcurso()
@@ -117,24 +164,10 @@ namespace ClassLibraryRepository
             {
                 //Cria uma objeto do tipo comando passando como parametro a string sql e a string de conexão
                 SqlCommand cmd = new SqlCommand(sql, con);
-
                 con.Open();
-
-                if(cmd == null)
-                {
-                    int count = (int)cmd.ExecuteScalar();
-                    cmd.Dispose();
-                    return count;
-                }
-                else
-                {
-                    int count = 0;
-                    cmd.Dispose();
-                    return count;
-                }
-                
-
-                //fecha a conexao
+                int count = (int)cmd.ExecuteScalar();
+                cmd.Dispose();
+                return count;
                 con.Close();
             }
             catch (Exception ex)
@@ -176,13 +209,13 @@ namespace ClassLibraryRepository
                 concurso.Dezena_15 = Convert.ToInt32(rdr["Dezena_15"].ToString());
                 concurso.Arrecadacao = rdr["Arrecadacao"].ToString();
                 concurso.Ganhadores = Convert.ToInt32(rdr["Ganhadores"].ToString());
-                
+
                 con.Close();
             }
             return concurso;
         }
 
-        public void Inserir(int Consurso, string Data, int D1, int D2, int D3, int D4, int D5, int D6, int D7, int D8, int D9, 
+        public void Inserir(int Consurso, string Data, int D1, int D2, int D3, int D4, int D5, int D6, int D7, int D8, int D9,
                             int D10, int D11, int D12, int D13, int D14, int D15, string Arrecadacao, int Ganhadores)
         {
 
