@@ -1,4 +1,4 @@
-﻿@model ClassLibraryLoterica.Models.Lotofacil
+﻿@model IEnumerable<ClassLibraryLoterica.Models.Lotofacil>
 
 @{
     ViewData["Title"] = "Simular";
@@ -8,6 +8,7 @@
 
 <h4>Lotofácil</h4>
 <hr />
+
 @using (Html.BeginForm("Simular", "LotofacilConcurso", FormMethod.Post))
 {
     <table cellpadding="0" cellspacing="0">
@@ -16,57 +17,57 @@
         </tr>
         <tr>
             <td>
-                @Html.TextBoxFor(m => m.Dezena_01)
+                <input type="text" name="Dezena_01" size="5" />
             </td>
             <td>
-                @Html.TextBoxFor(m => m.Dezena_02)
+                <input type="text" name="Dezena_02" size="5" />
             </td>
             <td>
-                @Html.TextBoxFor(m => m.Dezena_03)
+                <input type="text" name="Dezena_03" size="5" />
             </td>
             <td>
-                @Html.TextBoxFor(m => m.Dezena_04)
+                <input type="text" name="Dezena_04" size="5" />
             </td>
             <td>
-                @Html.TextBoxFor(m => m.Dezena_05)
+                <input type="text" name="Dezena_05" size="5" />
             </td>
         </tr>
         <tr>
             <td>
-                @Html.TextBoxFor(m => m.Dezena_06)
+                <input type="text" name="Dezena_06" size="5" />
             </td>
             <td>
-                @Html.TextBoxFor(m => m.Dezena_07)
+                <input type="text" name="Dezena_07" size="5" />
             </td>
             <td>
-                @Html.TextBoxFor(m => m.Dezena_08)
+                <input type="text" name="Dezena_08" size="5" />
             </td>
             <td>
-                @Html.TextBoxFor(m => m.Dezena_09)
+                <input type="text" name="Dezena_09" size="5" />
             </td>
             <td>
-                @Html.TextBoxFor(m => m.Dezena_10)
+                <input type="text" name="Dezena_10" size="5" />
             </td>
         </tr>
         <tr>
             <td>
-                @Html.TextBoxFor(m => m.Dezena_11)
+                <input type="text" name="Dezena_11" size="5" />
             </td>
             <td>
-                @Html.TextBoxFor(m => m.Dezena_12)
+                <input type="text" name="Dezena_12" size="5" />
             </td>
             <td>
-                @Html.TextBoxFor(m => m.Dezena_13)
+                <input type="text" name="Dezena_13" size="5" />
             </td>
             <td>
-                @Html.TextBoxFor(m => m.Dezena_14)
+                <input type="text" name="Dezena_14" size="5" />
             </td>
             <td>
-                @Html.TextBoxFor(m => m.Dezena_15)
+                <input type="text" name="Dezena_15" size="5" />
             </td>
         </tr>
         <tr>
-            <td><input type="submit" value="Enviar"/></td>
+            <td><input type="submit" value="Enviar" /></td>
         </tr>
     </table>
 }
@@ -74,124 +75,146 @@
 <div>
     <h4>Resultado</h4>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ConcursoID)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ConcursoID)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Data)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Data)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Dezena_01)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Dezena_01)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Dezena_02)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Dezena_02)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Dezena_03)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Dezena_03)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Dezena_04)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Dezena_04)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Dezena_05)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Dezena_05)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Dezena_06)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Dezena_06)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Dezena_07)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Dezena_07)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Dezena_08)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Dezena_08)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Dezena_09)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Dezena_09)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Dezena_10)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Dezena_10)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Dezena_11)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Dezena_11)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Dezena_12)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Dezena_12)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Dezena_13)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Dezena_13)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Dezena_14)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Dezena_14)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Dezena_15)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Dezena_15)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Arrecadacao)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Arrecadacao)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Ganhadores)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Ganhadores)
-        </dd>
-    </dl>
-</div>
-<div>
+
+    <table class="table" id="tblConcursos">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ConcursoID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Data)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dezena_01)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dezena_02)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dezena_03)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dezena_04)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dezena_05)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dezena_06)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dezena_07)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dezena_08)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dezena_09)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dezena_10)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dezena_11)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dezena_12)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dezena_13)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dezena_14)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dezena_15)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Arrecadacao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ganhadores)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Total)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (Model != null)
+            {
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ConcursoID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Data)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dezena_01)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dezena_02)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dezena_03)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dezena_04)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dezena_05)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dezena_06)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dezena_07)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dezena_08)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dezena_09)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dezena_10)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dezena_11)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dezena_12)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dezena_13)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dezena_14)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dezena_15)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Arrecadacao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ganhadores)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Total)
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
     <a asp-action="Index">Retornar</a>
 </div>
 @section Scripts {

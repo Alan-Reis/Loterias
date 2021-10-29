@@ -55,7 +55,7 @@ namespace ClassLibraryRepository
         }
 
         public Lotofacil GetPontos15(int? Dezena_01, int? Dezena_02, int? Dezena_03, int? Dezena_04, int? Dezena_05,
-                                     int? Dezena_06, int? Dezena_07, int? Dezena_08, int? Dezena_09, int? Dezena_10, 
+                                     int? Dezena_06, int? Dezena_07, int? Dezena_08, int? Dezena_09, int? Dezena_10,
                                      int? Dezena_11, int? Dezena_12, int? Dezena_13, int? Dezena_14, int? Dezena_15)
 
         {
@@ -113,7 +113,7 @@ namespace ClassLibraryRepository
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 string query = "SELECT * FROM PONTOS(" + Dezena_01 + "," + Dezena_02 + "," + Dezena_03 + "," + Dezena_04 + "," + Dezena_05 + "," + Dezena_06 + "," +
-                    "" + Dezena_07 + "," + Dezena_08 + "," + Dezena_09 + "," + Dezena_10 + "," + Dezena_11 + "," + Dezena_12 + "," + Dezena_13 + "," + Dezena_14 + "," + Dezena_15 + ")";
+                    "" + Dezena_07 + "," + Dezena_08 + "," + Dezena_09 + "," + Dezena_10 + "," + Dezena_11 + "," + Dezena_12 + "," + Dezena_13 + "," + Dezena_14 + "," + Dezena_15 + ")ORDER BY ConcursoID";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.CommandType = CommandType.Text;
@@ -141,8 +141,278 @@ namespace ClassLibraryRepository
                     lotofacil.Dezena_13 = Convert.ToInt32(rdr["Dezena_13"].ToString());
                     lotofacil.Dezena_14 = Convert.ToInt32(rdr["Dezena_14"].ToString());
                     lotofacil.Dezena_15 = Convert.ToInt32(rdr["Dezena_15"].ToString());
-                    //lotofacil.Arrecadacao = rdr["Arrecadacao"].ToString();
-                    //lotofacil.Ganhadores = Convert.ToInt32(rdr["Ganhadores"].ToString());
+
+                    //VERIFICAR TOTAL DE PONTOS
+                    if (
+                        Dezena_01 == lotofacil.Dezena_01 ||
+                        Dezena_01 == lotofacil.Dezena_02 ||
+                        Dezena_01 == lotofacil.Dezena_03 ||
+                        Dezena_01 == lotofacil.Dezena_04 ||
+                        Dezena_01 == lotofacil.Dezena_05 ||
+                        Dezena_01 == lotofacil.Dezena_06 ||
+                        Dezena_01 == lotofacil.Dezena_07
+                        )
+                    {
+                        lotofacil.Total = +1;
+                    }
+                    if (
+                          Dezena_02 == lotofacil.Dezena_01 ||
+                          Dezena_02 == lotofacil.Dezena_02 ||
+                          Dezena_02 == lotofacil.Dezena_03 ||
+                          Dezena_02 == lotofacil.Dezena_04 ||
+                          Dezena_02 == lotofacil.Dezena_05 ||
+                          Dezena_02 == lotofacil.Dezena_06 ||
+                          Dezena_02 == lotofacil.Dezena_07 ||
+                          Dezena_02 == lotofacil.Dezena_08 ||
+                          Dezena_02 == lotofacil.Dezena_09
+                          )
+                    {
+                        lotofacil.Total = +1;
+                    }
+                    if (
+                          Dezena_03 == lotofacil.Dezena_01 ||
+                          Dezena_03 == lotofacil.Dezena_02 ||
+                          Dezena_03 == lotofacil.Dezena_03 ||
+                          Dezena_03 == lotofacil.Dezena_04 ||
+                          Dezena_03 == lotofacil.Dezena_05 ||
+                          Dezena_03 == lotofacil.Dezena_06 ||
+                          Dezena_03 == lotofacil.Dezena_07 ||
+                          Dezena_03 == lotofacil.Dezena_08 ||
+                          Dezena_03 == lotofacil.Dezena_09 ||
+                          Dezena_03 == lotofacil.Dezena_10 ||
+                          Dezena_03 == lotofacil.Dezena_11
+                         )
+                    {
+                        lotofacil.Total = +1;
+                    }
+
+                    if (
+                       Dezena_04 == lotofacil.Dezena_01 ||
+                       Dezena_04 == lotofacil.Dezena_02 ||
+                       Dezena_04 == lotofacil.Dezena_03 ||
+                       Dezena_04 == lotofacil.Dezena_04 ||
+                       Dezena_04 == lotofacil.Dezena_05 ||
+                       Dezena_04 == lotofacil.Dezena_06 ||
+                       Dezena_04 == lotofacil.Dezena_07 ||
+                       Dezena_04 == lotofacil.Dezena_08 ||
+                       Dezena_04 == lotofacil.Dezena_09 ||
+                       Dezena_04 == lotofacil.Dezena_10 ||
+                       Dezena_04 == lotofacil.Dezena_11 ||
+                       Dezena_04 == lotofacil.Dezena_12 ||
+                       Dezena_04 == lotofacil.Dezena_13
+                       )
+                    {
+                        lotofacil.Total = +1;
+                    }
+
+                    if (
+                        Dezena_05 == lotofacil.Dezena_01 ||
+                        Dezena_05 == lotofacil.Dezena_02 ||
+                        Dezena_05 == lotofacil.Dezena_03 ||
+                        Dezena_05 == lotofacil.Dezena_04 ||
+                        Dezena_05 == lotofacil.Dezena_05 ||
+                        Dezena_05 == lotofacil.Dezena_06 ||
+                        Dezena_05 == lotofacil.Dezena_07 ||
+                        Dezena_05 == lotofacil.Dezena_08 ||
+                        Dezena_05 == lotofacil.Dezena_09 ||
+                        Dezena_05 == lotofacil.Dezena_10 ||
+                        Dezena_05 == lotofacil.Dezena_11 ||
+                        Dezena_05 == lotofacil.Dezena_12 ||
+                        Dezena_05 == lotofacil.Dezena_13 ||
+                        Dezena_05 == lotofacil.Dezena_14
+                        )
+                    {
+                        lotofacil.Total = +1;
+                    }
+                    if (
+                        Dezena_06 == lotofacil.Dezena_01 ||
+                        Dezena_06 == lotofacil.Dezena_02 ||
+                        Dezena_06 == lotofacil.Dezena_03 ||
+                        Dezena_06 == lotofacil.Dezena_04 ||
+                        Dezena_06 == lotofacil.Dezena_05 ||
+                        Dezena_06 == lotofacil.Dezena_06 ||
+                        Dezena_06 == lotofacil.Dezena_07 ||
+                        Dezena_06 == lotofacil.Dezena_08 ||
+                        Dezena_06 == lotofacil.Dezena_09 ||
+                        Dezena_06 == lotofacil.Dezena_10 ||
+                        Dezena_06 == lotofacil.Dezena_11 ||
+                        Dezena_06 == lotofacil.Dezena_12 ||
+                        Dezena_06 == lotofacil.Dezena_13 ||
+                        Dezena_06 == lotofacil.Dezena_14 ||
+                        Dezena_06 == lotofacil.Dezena_15
+                        )
+                    {
+                        lotofacil.Total = +1;
+                    }
+                    if (
+                        Dezena_07 == lotofacil.Dezena_01 ||
+                        Dezena_07 == lotofacil.Dezena_02 ||
+                        Dezena_07 == lotofacil.Dezena_03 ||
+                        Dezena_07 == lotofacil.Dezena_04 ||
+                        Dezena_07 == lotofacil.Dezena_05 ||
+                        Dezena_07 == lotofacil.Dezena_06 ||
+                        Dezena_07 == lotofacil.Dezena_07 ||
+                        Dezena_07 == lotofacil.Dezena_08 ||
+                        Dezena_07 == lotofacil.Dezena_09 ||
+                        Dezena_07 == lotofacil.Dezena_10 ||
+                        Dezena_07 == lotofacil.Dezena_11 ||
+                        Dezena_07 == lotofacil.Dezena_12 ||
+                        Dezena_07 == lotofacil.Dezena_13 ||
+                        Dezena_07 == lotofacil.Dezena_14 ||
+                        Dezena_07 == lotofacil.Dezena_15
+                        )
+                    {
+                        lotofacil.Total = +1;
+                    }
+                    if (
+                        Dezena_08 == lotofacil.Dezena_01 ||
+                        Dezena_08 == lotofacil.Dezena_02 ||
+                        Dezena_08 == lotofacil.Dezena_03 ||
+                        Dezena_08 == lotofacil.Dezena_04 ||
+                        Dezena_08 == lotofacil.Dezena_05 ||
+                        Dezena_08 == lotofacil.Dezena_06 ||
+                        Dezena_08 == lotofacil.Dezena_07 ||
+                        Dezena_08 == lotofacil.Dezena_08 ||
+                        Dezena_08 == lotofacil.Dezena_09 ||
+                        Dezena_08 == lotofacil.Dezena_10 ||
+                        Dezena_08 == lotofacil.Dezena_11 ||
+                        Dezena_08 == lotofacil.Dezena_12 ||
+                        Dezena_08 == lotofacil.Dezena_13 ||
+                        Dezena_08 == lotofacil.Dezena_14 ||
+                        Dezena_08 == lotofacil.Dezena_15
+                        )
+                    {
+                        lotofacil.Total = +1;
+                    }
+                    if (
+                        Dezena_09 == lotofacil.Dezena_02 ||
+                        Dezena_09 == lotofacil.Dezena_03 ||
+                        Dezena_09 == lotofacil.Dezena_04 ||
+                        Dezena_09 == lotofacil.Dezena_05 ||
+                        Dezena_09 == lotofacil.Dezena_06 ||
+                        Dezena_09 == lotofacil.Dezena_07 ||
+                        Dezena_09 == lotofacil.Dezena_08 ||
+                        Dezena_09 == lotofacil.Dezena_09 ||
+                        Dezena_09 == lotofacil.Dezena_10 ||
+                        Dezena_09 == lotofacil.Dezena_11 ||
+                        Dezena_09 == lotofacil.Dezena_12 ||
+                        Dezena_09 == lotofacil.Dezena_13 ||
+                        Dezena_09 == lotofacil.Dezena_14 ||
+                        Dezena_09 == lotofacil.Dezena_15
+                        )
+                    {
+                        lotofacil.Total = +1;
+                    }
+                    if (
+                        Dezena_10 == lotofacil.Dezena_02 ||
+                        Dezena_10 == lotofacil.Dezena_03 ||
+                        Dezena_10 == lotofacil.Dezena_04 ||
+                        Dezena_10 == lotofacil.Dezena_05 ||
+                        Dezena_10 == lotofacil.Dezena_06 ||
+                        Dezena_10 == lotofacil.Dezena_07 ||
+                        Dezena_10 == lotofacil.Dezena_08 ||
+                        Dezena_10 == lotofacil.Dezena_09 ||
+                        Dezena_10 == lotofacil.Dezena_10 ||
+                        Dezena_10 == lotofacil.Dezena_11 ||
+                        Dezena_10 == lotofacil.Dezena_12 ||
+                        Dezena_10 == lotofacil.Dezena_13 ||
+                        Dezena_10 == lotofacil.Dezena_14 ||
+                        Dezena_10 == lotofacil.Dezena_15
+                        )
+                    {
+                        lotofacil.Total = +1;
+                    }
+                    if (
+                        Dezena_11 == lotofacil.Dezena_03 ||
+                        Dezena_11 == lotofacil.Dezena_04 ||
+                        Dezena_11 == lotofacil.Dezena_05 ||
+                        Dezena_11 == lotofacil.Dezena_06 ||
+                        Dezena_11 == lotofacil.Dezena_07 ||
+                        Dezena_11 == lotofacil.Dezena_08 ||
+                        Dezena_11 == lotofacil.Dezena_09 ||
+                        Dezena_11 == lotofacil.Dezena_10 ||
+                        Dezena_11 == lotofacil.Dezena_11 ||
+                        Dezena_11 == lotofacil.Dezena_12 ||
+                        Dezena_11 == lotofacil.Dezena_13 ||
+                        Dezena_11 == lotofacil.Dezena_14 ||
+                        Dezena_11 == lotofacil.Dezena_15
+                        )
+                    {
+                        lotofacil.Total = +1;
+                    }
+                    if (
+                        Dezena_12 == lotofacil.Dezena_03 ||
+                        Dezena_12 == lotofacil.Dezena_04 ||
+                        Dezena_12 == lotofacil.Dezena_05 ||
+                        Dezena_12 == lotofacil.Dezena_06 ||
+                        Dezena_12 == lotofacil.Dezena_07 ||
+                        Dezena_12 == lotofacil.Dezena_08 ||
+                        Dezena_12 == lotofacil.Dezena_09 ||
+                        Dezena_12 == lotofacil.Dezena_10 ||
+                        Dezena_12 == lotofacil.Dezena_11 ||
+                        Dezena_12 == lotofacil.Dezena_12 ||
+                        Dezena_12 == lotofacil.Dezena_13 ||
+                        Dezena_12 == lotofacil.Dezena_14 ||
+                        Dezena_12 == lotofacil.Dezena_15
+                        )
+                    {
+                        lotofacil.Total = +1;
+                    }
+                    if (
+                        Dezena_13 == lotofacil.Dezena_03 ||
+                        Dezena_13 == lotofacil.Dezena_04 ||
+                        Dezena_13 == lotofacil.Dezena_05 ||
+                        Dezena_13 == lotofacil.Dezena_06 ||
+                        Dezena_13 == lotofacil.Dezena_07 ||
+                        Dezena_13 == lotofacil.Dezena_08 ||
+                        Dezena_13 == lotofacil.Dezena_09 ||
+                        Dezena_13 == lotofacil.Dezena_10 ||
+                        Dezena_13 == lotofacil.Dezena_11 ||
+                        Dezena_13 == lotofacil.Dezena_12 ||
+                        Dezena_13 == lotofacil.Dezena_13 ||
+                        Dezena_13 == lotofacil.Dezena_14 ||
+                        Dezena_13 == lotofacil.Dezena_15
+                        )
+                    {
+                        lotofacil.Total = +1;
+                    }
+                    if (
+                        Dezena_14 == lotofacil.Dezena_04 ||
+                        Dezena_14 == lotofacil.Dezena_05 ||
+                        Dezena_14 == lotofacil.Dezena_06 ||
+                        Dezena_14 == lotofacil.Dezena_07 ||
+                        Dezena_14 == lotofacil.Dezena_08 ||
+                        Dezena_14 == lotofacil.Dezena_03 ||
+                        Dezena_14 == lotofacil.Dezena_09 ||
+                        Dezena_14 == lotofacil.Dezena_10 ||
+                        Dezena_14 == lotofacil.Dezena_11 ||
+                        Dezena_14 == lotofacil.Dezena_12 ||
+                        Dezena_14 == lotofacil.Dezena_13 ||
+                        Dezena_14 == lotofacil.Dezena_14 ||
+                        Dezena_14 == lotofacil.Dezena_15
+                        )
+                    {
+                        lotofacil.Total = +1;
+                    }
+                    if (
+                        Dezena_15 == lotofacil.Dezena_04 ||
+                        Dezena_15 == lotofacil.Dezena_05 ||
+                        Dezena_15 == lotofacil.Dezena_06 ||
+                        Dezena_15 == lotofacil.Dezena_07 ||
+                        Dezena_15 == lotofacil.Dezena_08 ||
+                        Dezena_15 == lotofacil.Dezena_03 ||
+                        Dezena_15 == lotofacil.Dezena_09 ||
+                        Dezena_15 == lotofacil.Dezena_10 ||
+                        Dezena_15 == lotofacil.Dezena_11 ||
+                        Dezena_15 == lotofacil.Dezena_12 ||
+                        Dezena_15 == lotofacil.Dezena_13 ||
+                        Dezena_15 == lotofacil.Dezena_14 ||
+                        Dezena_15 == lotofacil.Dezena_15
+                        )
+                    {
+                        lotofacil.Total = +1;
+                    }
+
                     concursos.Add(lotofacil);
                 }
                 con.Close();
