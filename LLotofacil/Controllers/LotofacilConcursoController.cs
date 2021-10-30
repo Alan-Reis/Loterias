@@ -66,8 +66,6 @@ namespace LLotofacil.Controllers
             ViewBag.Dezena_14 = Dezena_14;
             ViewBag.Dezena_15 = Dezena_15;
 
-
-
             List<Lotofacil> listLotofacil = new List<Lotofacil>();
             listLotofacil = concurso.GetPontos(Dezena_01, Dezena_02, Dezena_03, Dezena_04, Dezena_05,
                                                        Dezena_06, Dezena_07, Dezena_08, Dezena_09, Dezena_10,

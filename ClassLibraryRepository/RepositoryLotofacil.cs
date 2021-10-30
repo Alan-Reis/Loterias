@@ -54,55 +54,6 @@ namespace ClassLibraryRepository
             return concursos;
         }
 
-        public Lotofacil GetPontos15(int? Dezena_01, int? Dezena_02, int? Dezena_03, int? Dezena_04, int? Dezena_05,
-                                     int? Dezena_06, int? Dezena_07, int? Dezena_08, int? Dezena_09, int? Dezena_10,
-                                     int? Dezena_11, int? Dezena_12, int? Dezena_13, int? Dezena_14, int? Dezena_15)
-
-        {
-            Lotofacil concurso = new Lotofacil();
-
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                string query = "SELECT * FROM PONTOS15(" + Dezena_01 + "," + Dezena_02 + "," + Dezena_03 + "," + Dezena_04 + "," + Dezena_05 + "," + Dezena_06 + "," +
-                    "" + Dezena_07 + "," + Dezena_08 + "," + Dezena_09 + "," + Dezena_10 + "," + Dezena_11 + "," + Dezena_12 + "," + Dezena_13 + "," + Dezena_14 + "," + Dezena_15 + ")";
-
-                SqlCommand cmd = new SqlCommand(query, con);
-
-                con.Open();
-                SqlDataReader rdr = cmd.ExecuteReader();
-                rdr.Read();
-                try
-                {
-                    concurso.ConcursoID = Convert.ToInt32(rdr["ConcursoID"]);
-                    concurso.Data = String.Format("{0:dd/MM/yyyy}", rdr["Data"]);
-                    concurso.Dezena_01 = Convert.ToInt32(rdr["Dezena_01"].ToString());
-                    concurso.Dezena_02 = Convert.ToInt32(rdr["Dezena_02"].ToString());
-                    concurso.Dezena_03 = Convert.ToInt32(rdr["Dezena_03"].ToString());
-                    concurso.Dezena_04 = Convert.ToInt32(rdr["Dezena_04"].ToString());
-                    concurso.Dezena_05 = Convert.ToInt32(rdr["Dezena_05"].ToString());
-                    concurso.Dezena_06 = Convert.ToInt32(rdr["Dezena_06"].ToString());
-                    concurso.Dezena_07 = Convert.ToInt32(rdr["Dezena_07"].ToString());
-                    concurso.Dezena_08 = Convert.ToInt32(rdr["Dezena_08"].ToString());
-                    concurso.Dezena_09 = Convert.ToInt32(rdr["Dezena_09"].ToString());
-                    concurso.Dezena_10 = Convert.ToInt32(rdr["Dezena_10"].ToString());
-                    concurso.Dezena_11 = Convert.ToInt32(rdr["Dezena_11"].ToString());
-                    concurso.Dezena_12 = Convert.ToInt32(rdr["Dezena_12"].ToString());
-                    concurso.Dezena_13 = Convert.ToInt32(rdr["Dezena_13"].ToString());
-                    concurso.Dezena_14 = Convert.ToInt32(rdr["Dezena_14"].ToString());
-                    concurso.Dezena_15 = Convert.ToInt32(rdr["Dezena_15"].ToString());
-                    concurso.Arrecadacao = rdr["Arrecadacao"].ToString();
-                    concurso.Ganhadores = Convert.ToInt32(rdr["Ganhadores"].ToString());
-
-                }
-                catch (Exception ex)
-                {
-
-                }
-                con.Close();
-            }
-            return concurso;
-        }
-
         public IEnumerable<Lotofacil> GetPontos(int? Dezena_01, int? Dezena_02, int? Dezena_03, int? Dezena_04, int? Dezena_05,
                                                 int? Dezena_06, int? Dezena_07, int? Dezena_08, int? Dezena_09, int? Dezena_10,
                                                 int? Dezena_11, int? Dezena_12, int? Dezena_13, int? Dezena_14, int? Dezena_15)
@@ -414,6 +365,127 @@ namespace ClassLibraryRepository
                             )
                         {
                             lotofacil.Total = +1;
+                        }
+
+                        if (lotofacil.Dezena_01 % 2 == 0)
+                        {
+                            lotofacil.TotalPar = +1;
+                        }
+                        else
+                        {
+                            lotofacil.TotalImpar = +1;
+                        }
+                        if (lotofacil.Dezena_02 % 2 == 0)
+                        {
+                            lotofacil.TotalPar = +1;
+                        }
+                        else
+                        {
+                            lotofacil.TotalImpar = +1;
+                        }
+                        if (lotofacil.Dezena_03 % 2 == 0)
+                        {
+                            lotofacil.TotalPar = +1;
+                        }
+                        else
+                        {
+                            lotofacil.TotalImpar = +1;
+                        }
+                        if (lotofacil.Dezena_04 % 2 == 0)
+                        {
+                            lotofacil.TotalPar = +1;
+                        }
+                        else
+                        {
+                            lotofacil.TotalImpar = +1;
+                        }
+                        if (lotofacil.Dezena_05 % 2 == 0)
+                        {
+                            lotofacil.TotalPar = +1;
+                        }
+                        else
+                        {
+                            lotofacil.TotalImpar = +1;
+                        }
+                        if (lotofacil.Dezena_06 % 2 == 0)
+                        {
+                            lotofacil.TotalPar = +1;
+                        }
+                        else
+                        {
+                            lotofacil.TotalImpar = +1;
+                        }
+                        if (lotofacil.Dezena_07 % 2 == 0)
+                        {
+                            lotofacil.TotalPar = +1;
+                        }
+                        else
+                        {
+                            lotofacil.TotalImpar = +1;
+                        }
+                        if (lotofacil.Dezena_08 % 2 == 0)
+                        {
+                            lotofacil.TotalPar = +1;
+                        }
+                        else
+                        {
+                            lotofacil.TotalImpar = +1;
+                        }
+                        if (lotofacil.Dezena_09 % 2 == 0)
+                        {
+                            lotofacil.TotalPar = +1;
+                        }
+                        else
+                        {
+                            lotofacil.TotalImpar = +1;
+                        }
+                        if (lotofacil.Dezena_10 % 2 == 0)
+                        {
+                            lotofacil.TotalPar = +1;
+                        }
+                        else
+                        {
+                            lotofacil.TotalImpar = +1;
+                        }
+                        if (lotofacil.Dezena_11 % 2 == 0)
+                        {
+                            lotofacil.TotalPar = +1;
+                        }
+                        else
+                        {
+                            lotofacil.TotalImpar = +1;
+                        }
+                        if (lotofacil.Dezena_12 % 2 == 0)
+                        {
+                            lotofacil.TotalPar = +1;
+                        }
+                        else
+                        {
+                            lotofacil.TotalImpar = +1;
+                        }
+                        if (lotofacil.Dezena_13 % 2 == 0)
+                        {
+                            lotofacil.TotalPar = +1;
+                        }
+                        else
+                        {
+                            lotofacil.TotalImpar = +1;
+                        }
+                        if (lotofacil.Dezena_14 % 2 == 0)
+                        {
+                            lotofacil.TotalPar = +1;
+                        }
+                        else
+                        {
+                            lotofacil.TotalImpar = +1;
+                        }
+                        if (lotofacil.Dezena_15 % 2 == 0)
+                        {
+                            lotofacil.TotalPar = +1;
+                        }
+                        else
+                        {
+                            lotofacil.TotalImpar = +1;
                         }
 
                         concursos.Add(lotofacil);

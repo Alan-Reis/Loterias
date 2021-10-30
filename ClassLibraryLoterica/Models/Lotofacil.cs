@@ -30,7 +30,31 @@ namespace ClassLibraryLoterica.Models
         private int _dezena_15;
 
         private int _total;
+        private int _totalPar;
+        private int _totalImpar;
+        private int _totalPrimo;
 
+        public int TotalPar { 
+            get
+            {
+                return _totalPar;
+            }
+                set
+            {
+                _totalPar = _totalPar + value;
+            }
+                }
+        public int TotalImpar {
+            get
+            {
+                return _totalImpar;
+            }
+            set
+            {
+                _totalImpar = _totalImpar + value;
+            }
+        }
+        public int TotalPrimo { get; set; }
         public int Total
         {
             get
@@ -42,6 +66,7 @@ namespace ClassLibraryLoterica.Models
                 _total = _total + value;
             }
         }
+
         public int Dezena_01 { get; set; }
         public int Dezena_02 { get; set; }
         public int Dezena_03 { get; set; }
@@ -59,7 +84,6 @@ namespace ClassLibraryLoterica.Models
         public int Dezena_15 { get; set; }
         public string Arrecadacao { get; set; }
         public int Ganhadores { get; set; }
-
     }
 
 }

@@ -235,6 +235,15 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Total)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalPar)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalImpar)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalPrimo)
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -244,68 +253,78 @@
 
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ConcursoID)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Data)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Dezena_01)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Dezena_02)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Dezena_03)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Dezena_04)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Dezena_05)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Dezena_06)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Dezena_07)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Dezena_08)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Dezena_09)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Dezena_10)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Dezena_11)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Dezena_12)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Dezena_13)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Dezena_14)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Dezena_15)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Arrecadacao)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Ganhadores)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Total)
-                        </td>
-                    </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ConcursoID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dezena_01)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dezena_02)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dezena_03)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dezena_04)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dezena_05)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dezena_06)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dezena_07)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dezena_08)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dezena_09)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dezena_10)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dezena_11)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dezena_12)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dezena_13)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dezena_14)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dezena_15)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Arrecadacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ganhadores)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalPar)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalImpar)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalPrimo)
+                </td>
+            </tr>
                 }
             }
         </tbody>
