@@ -1,6 +1,7 @@
 ﻿using ClassLibraryLoterica.Models;
 using ClassLibraryService;
 using Microsoft.AspNetCore.Mvc;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +16,17 @@ namespace LLotofacil.Controllers
         {
             this.concurso = concurso;
         }
-        public IActionResult Index()
+
+        public ActionResult Index(int? pagina)
         {
             List<Lotofacil> listLotofacil = new List<Lotofacil>();
             listLotofacil = concurso.GetAllConcursos().ToList();
-            return View(listLotofacil);
+            int paginaTamanho = 10;
+            int paginaNumero = (pagina ?? 1);
+
+            return View(listLotofacil.ToPagedList(paginaNumero, paginaTamanho));
         }
+       
         public IActionResult Details(int? id)
         {
             if (id == null)

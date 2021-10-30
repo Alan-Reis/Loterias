@@ -12,13 +12,14 @@ namespace ClassLibraryRepository
     {
         string connectionString = @"Data Source=DESKTOP-7KH1TOI\SQLEXPRESS;Initial Catalog=DBLoterica;Integrated Security=True";
 
+        #region //Retorna todos os concursos (criar paginação e campo de pesquisa)
         public IEnumerable<Lotofacil> GetAllConcursos()
         {
             List<Lotofacil> concursos = new List<Lotofacil>();
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "SELECT TOP 10 * FROM [dbo].[LotofacilConcursos]";
+                string query = "SELECT * FROM [dbo].[LotofacilConcursos] ORDER BY ConcursoID DESC";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
@@ -53,7 +54,9 @@ namespace ClassLibraryRepository
             }
             return concursos;
         }
+        #endregion
 
+        #region //Utilizado pelo simulador para verificar as dezenas
         public IEnumerable<Lotofacil> GetPontos(int? Dezena_01, int? Dezena_02, int? Dezena_03, int? Dezena_04, int? Dezena_05,
                                                 int? Dezena_06, int? Dezena_07, int? Dezena_08, int? Dezena_09, int? Dezena_10,
                                                 int? Dezena_11, int? Dezena_12, int? Dezena_13, int? Dezena_14, int? Dezena_15)
@@ -96,7 +99,7 @@ namespace ClassLibraryRepository
                         lotofacil.Dezena_14 = Convert.ToInt32(rdr["Dezena_14"].ToString());
                         lotofacil.Dezena_15 = Convert.ToInt32(rdr["Dezena_15"].ToString());
 
-                        //VERIFICAR TOTAL DE PONTOS
+                        #region //VERIFICAR TOTAL DE PONTOS
                         if (
                             Dezena_01 == lotofacil.Dezena_01 ||
                             Dezena_01 == lotofacil.Dezena_02 ||
@@ -366,7 +369,9 @@ namespace ClassLibraryRepository
                         {
                             lotofacil.Total = +1;
                         }
+                        #endregion
 
+                        #region                       //Par ou ímpar
                         if (lotofacil.Dezena_01 % 2 == 0)
                         {
                             lotofacil.TotalPar = +1;
@@ -487,7 +492,8 @@ namespace ClassLibraryRepository
                         {
                             lotofacil.TotalImpar = +1;
                         }
-
+                        #endregion
+                        
                         concursos.Add(lotofacil);
                     }
                 }
@@ -502,7 +508,10 @@ namespace ClassLibraryRepository
             }
             return concursos;
         }
+        #endregion
 
+
+        #region//GetConcurso foi criado para atender ao SeleniumWebScrapting para setar o último concurso
         public int GetConcurso()
         {
             Lotofacil resultado = new Lotofacil();
@@ -529,7 +538,9 @@ namespace ClassLibraryRepository
             }
             return 0;
         }
+        #endregion
 
+        #region//Já esse GetConcurso é criado para a página de detalhes de cada concurso
         public Lotofacil GetConcurso(int? id)
         {
             Lotofacil concurso = new Lotofacil();
@@ -567,7 +578,9 @@ namespace ClassLibraryRepository
             }
             return concurso;
         }
+        #endregion
 
+        #region //Usado pelo WebScrapting para inserir os dados
         public void Inserir(int Consurso, string Data, int D1, int D2, int D3, int D4, int D5, int D6, int D7, int D8, int D9,
                             int D10, int D11, int D12, int D13, int D14, int D15, string Arrecadacao, int Ganhadores)
         {
@@ -621,6 +634,6 @@ namespace ClassLibraryRepository
                 Console.WriteLine("Conexão falhou!" + ex);
             }
         }
-
+        #endregion
     }
 }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ClassLibraryLoterica.Models.Lotofacil>
+﻿@model PagedList.IPagedList<ClassLibraryLoterica.Models.Lotofacil>
 
 @{
     ViewData["Title"] = "Index";
@@ -10,61 +10,61 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ConcursoID)
+                Concurso
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Data)
+                Data
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Dezena_01)
+                Bola01
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Dezena_02)
+                Bola02
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Dezena_03)
+                Bola03
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Dezena_04)
+                Bola04
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Dezena_05)
+                Bola05
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Dezena_06)
+                Bola06
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Dezena_07)
+                Bola07
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Dezena_08)
+                Bola08
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Dezena_09)
+                Bola09
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Dezena_10)
+                Bola10
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Dezena_11)
+                Bola11
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Dezena_12)
+                Bola12
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Dezena_13)
+                Bola13
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Dezena_14)
+                Bola14
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Dezena_15)
+                Bola15
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Arrecadacao)
+                Arrecadação
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Ganhadores)
+                Ganhadores
             </th>
             <th></th>
         </tr>
@@ -137,7 +137,36 @@
         }
     </tbody>
 </table>
+<div>
+    Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+    of @Model.PageCount
 
+    @if (Model.HasPreviousPage)
+    {
+        @Html.ActionLink("<<", "Index", new { pagina = 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+        @Html.Raw(" ");
+        @Html.ActionLink("< Anterior", "Index", new { pagina = Model.PageNumber - 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+    }
+    else
+    {
+        @:<<
+        @Html.Raw(" ");
+        @:< Anterior
+    }
+
+    @if (Model.HasNextPage)
+    {
+        @Html.ActionLink("Próxima >", "Index", new { pagina = Model.PageNumber + 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+        @Html.Raw(" ");
+        @Html.ActionLink(">>", "Index", new { pagina = Model.PageCount, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+    }
+    else
+    {
+        @:Próxima >
+        @Html.Raw(" ")
+        @:>>
+    }
+</div>
 @section Scripts{
     <!--<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
