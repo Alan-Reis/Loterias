@@ -8,6 +8,7 @@ namespace ClassLibraryService
     public interface ILotofacil
     {
         IEnumerable<Lotofacil> GetAllConcursos();
+        IEnumerable<Lotofacil> GetConcursoID(int? Concurso);
         Lotofacil GetConcurso(int? id);
         IEnumerable<Lotofacil> GetPontos(int? Dezena_01, int? Dezena_02, int? Dezena_03, int? Dezena_04, int? Dezena_05,
                                          int? Dezena_06, int? Dezena_07, int? Dezena_08, int? Dezena_09, int? Dezena_10,

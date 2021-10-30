@@ -16,15 +16,33 @@ namespace LLotofacil.Controllers
         {
             this.concurso = concurso;
         }
+        [HttpPost]
+        public IActionResult Index(int? pagina, int? ConcursoID)
+        {
 
-        public ActionResult Index(int? pagina)
+            List<Lotofacil> listLotofacil = new List<Lotofacil>();
+            listLotofacil = concurso.GetConcursoID(ConcursoID).ToList();
+
+            int paginaTamanho1 = 10;
+            int paginaNumero1 = (pagina ?? 1);
+
+            return View(listLotofacil.ToPagedList(paginaNumero1, paginaTamanho1));
+        }
+
+        public IActionResult Index(int? pagina, int ConcursoID)
         {
             List<Lotofacil> listLotofacil = new List<Lotofacil>();
-            listLotofacil = concurso.GetAllConcursos().ToList();
-            int paginaTamanho = 10;
-            int paginaNumero = (pagina ?? 1);
+            if(ConcursoID != null)
+            {
+                listLotofacil = concurso.GetAllConcursos().ToList();
+                int paginaTamanho = 10;
+                int paginaNumero = (pagina ?? 1);
 
-            return View(listLotofacil.ToPagedList(paginaNumero, paginaTamanho));
+                return View(listLotofacil.ToPagedList(paginaNumero, paginaTamanho));
+            }
+
+            return View();
+           
         }
        
         public IActionResult Details(int? id)
@@ -43,14 +61,14 @@ namespace LLotofacil.Controllers
 
             return View(lotofacil);
         }
-        public ActionResult Simular()
+        public IActionResult Simular()
         {
 
             return View();
         }
 
         [HttpPost]
-        public ActionResult Simular(int? Dezena_01, int? Dezena_02, int? Dezena_03, int? Dezena_04, int? Dezena_05,
+        public IActionResult Simular(int? Dezena_01, int? Dezena_02, int? Dezena_03, int? Dezena_04, int? Dezena_05,
                                     int? Dezena_06, int? Dezena_07, int? Dezena_08, int? Dezena_09, int? Dezena_10,
                                     int? Dezena_11, int? Dezena_12, int? Dezena_13, int? Dezena_14, int? Dezena_15)
         {

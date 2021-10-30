@@ -20,6 +20,52 @@ namespace ClassLibraryRepository
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 string query = "SELECT * FROM [dbo].[LotofacilConcursos] ORDER BY ConcursoID DESC";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.CommandType = CommandType.Text;
+                con.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    Lotofacil lotofacil = new Lotofacil();
+                    lotofacil.ConcursoID = Convert.ToInt32(rdr["ConcursoID"]);
+                    lotofacil.Data = String.Format("{0:dd/MM/yyyy}", rdr["Data"]);
+                    lotofacil.ConcursoID = Convert.ToInt32(rdr["ConcursoID"]);
+                    lotofacil.Data = String.Format("{0:dd/MM/yyyy}", rdr["Data"]);
+                    lotofacil.Dezena_01 = Convert.ToInt32(rdr["Dezena_01"].ToString());
+                    lotofacil.Dezena_02 = Convert.ToInt32(rdr["Dezena_02"].ToString());
+                    lotofacil.Dezena_03 = Convert.ToInt32(rdr["Dezena_03"].ToString());
+                    lotofacil.Dezena_04 = Convert.ToInt32(rdr["Dezena_04"].ToString());
+                    lotofacil.Dezena_05 = Convert.ToInt32(rdr["Dezena_05"].ToString());
+                    lotofacil.Dezena_06 = Convert.ToInt32(rdr["Dezena_06"].ToString());
+                    lotofacil.Dezena_07 = Convert.ToInt32(rdr["Dezena_07"].ToString());
+                    lotofacil.Dezena_08 = Convert.ToInt32(rdr["Dezena_08"].ToString());
+                    lotofacil.Dezena_09 = Convert.ToInt32(rdr["Dezena_09"].ToString());
+                    lotofacil.Dezena_10 = Convert.ToInt32(rdr["Dezena_10"].ToString());
+                    lotofacil.Dezena_11 = Convert.ToInt32(rdr["Dezena_11"].ToString());
+                    lotofacil.Dezena_12 = Convert.ToInt32(rdr["Dezena_12"].ToString());
+                    lotofacil.Dezena_13 = Convert.ToInt32(rdr["Dezena_13"].ToString());
+                    lotofacil.Dezena_14 = Convert.ToInt32(rdr["Dezena_14"].ToString());
+                    lotofacil.Dezena_15 = Convert.ToInt32(rdr["Dezena_15"].ToString());
+                    lotofacil.Arrecadacao = rdr["Arrecadacao"].ToString();
+                    lotofacil.Ganhadores = Convert.ToInt32(rdr["Ganhadores"].ToString());
+                    concursos.Add(lotofacil);
+                }
+                con.Close();
+            }
+            return concursos;
+        }
+        #endregion
+
+        #region //Retorna todos os concursos (criar paginação e campo de pesquisa)
+        public IEnumerable<Lotofacil> GetConcursoID(int? ConcursoID)
+        {
+            List<Lotofacil> concursos = new List<Lotofacil>();
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM [dbo].[LotofacilConcursos] WHERE ConcursoID =" + ConcursoID;
+
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.CommandType = CommandType.Text;
                 con.Open();
@@ -589,6 +635,7 @@ namespace ClassLibraryRepository
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-7KH1TOI\SQLEXPRESS;Initial Catalog=DBLoterica;Integrated Security=True");
 
             //definição do comando sql
+            //IDENTITY_INSERT foi inserido no contexto porque a coluna ConcursoID é definada como auto-incremento.
             string sqlSet = "SET IDENTITY_INSERT [LotofacilConcursos] ON";
             string sql = "INSERT INTO LotofacilConcursos(ConcursoID, Data, Dezena_01, Dezena_02, Dezena_03, Dezena_04, Dezena_05, Dezena_06, Dezena_07, Dezena_08, Dezena_09, Dezena_10, Dezena_11, Dezena_12, Dezena_13, Dezena_14, Dezena_15, Arrecadacao, Ganhadores) " +
             "Values(@Concurso, @Data, @Dezena01, @Dezena02, @Dezena03, @Dezena04, @Dezena05, @Dezena06, @Dezena07, @Dezena08, @Dezena09, @Dezena10, @Dezena11, @Dezena12, @Dezena13, @Dezena14, @Dezena15, @Arrecadacao, @Ganhadores)";

@@ -5,6 +5,22 @@
 }
 
 <h1>Index</h1>
+@using (Html.BeginForm("Index", "LotofacilConcurso", FormMethod.Post))
+{
+    <p style="color:red">@ViewBag.Erro</p>
+
+    <tr>
+        <th colspan="2" align="center">Digite o jogo:</th>
+    </tr>
+
+    <td>
+        <input type="number" name="ConcursoID" size="1" />
+    </td>
+    <td><input type="submit" value="Enviar" /></td>
+}
+<div>
+    <a asp-action="Index">Listar todos</a>
+</div>
 
 <table class="table" id="tblConcursos">
     <thead>
@@ -70,75 +86,79 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @if (Model != null)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ConcursoID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Data)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Dezena_01)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Dezena_02)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Dezena_03)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Dezena_04)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Dezena_05)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Dezena_06)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Dezena_07)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Dezena_08)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Dezena_09)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Dezena_10)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Dezena_11)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Dezena_12)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Dezena_13)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Dezena_14)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Dezena_15)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Arrecadacao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Ganhadores)
-                </td>
-                <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.ConcursoID })
-                </td>
-            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ConcursoID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Data)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dezena_01)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dezena_02)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dezena_03)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dezena_04)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dezena_05)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dezena_06)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dezena_07)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dezena_08)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dezena_09)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dezena_10)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dezena_11)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dezena_12)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dezena_13)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dezena_14)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dezena_15)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Arrecadacao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ganhadores)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.ConcursoID })
+                    </td>
+                </tr>
+            }
         }
     </tbody>
 </table>
 <div>
-    Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+
+        Página @(Model.PageCount< Model.PageNumber ? 0 : Model.PageNumber)
     of @Model.PageCount
 
     @if (Model.HasPreviousPage)
@@ -166,6 +186,8 @@
         @Html.Raw(" ")
         @:>>
     }
+
+
 </div>
 @section Scripts{
     <!--<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
