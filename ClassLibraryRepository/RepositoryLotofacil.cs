@@ -12,7 +12,7 @@ namespace ClassLibraryRepository
     {
         string connectionString = @"Data Source=DESKTOP-7KH1TOI\SQLEXPRESS;Initial Catalog=DBLoterica;Integrated Security=True";
 
-        #region //Retorna todos os concursos (criar paginação e campo de pesquisa)
+        #region //Retorna todos os concursos 
         public IEnumerable<Lotofacil> GetAllConcursos()
         {
             List<Lotofacil> concursos = new List<Lotofacil>();
@@ -57,7 +57,7 @@ namespace ClassLibraryRepository
         }
         #endregion
 
-        #region //Retorna todos os concursos (criar paginação e campo de pesquisa)
+        #region //Pesquisar por ConcursiID
         public IEnumerable<Lotofacil> GetConcursoID(int? ConcursoID)
         {
             List<Lotofacil> concursos = new List<Lotofacil>();
@@ -125,8 +125,7 @@ namespace ClassLibraryRepository
                     while (rdr.Read())
                     {
                         Lotofacil lotofacil = new Lotofacil();
-                        lotofacil.ConcursoID = Convert.ToInt32(rdr["ConcursoID"]);
-                        lotofacil.Data = String.Format("{0:dd/MM/yyyy}", rdr["Data"]);
+
                         lotofacil.ConcursoID = Convert.ToInt32(rdr["ConcursoID"]);
                         lotofacil.Data = String.Format("{0:dd/MM/yyyy}", rdr["Data"]);
                         lotofacil.Dezena_01 = Convert.ToInt32(rdr["Dezena_01"].ToString());
@@ -416,141 +415,62 @@ namespace ClassLibraryRepository
                             lotofacil.Total = +1;
                         }
                         #endregion
-
-                        #region                       //Par ou ímpar
-                        if (lotofacil.Dezena_01 % 2 == 0)
+                                           
+                        #region//Par ou ímpar
+                        int[] dezenas = new int[] {
+                            lotofacil.Dezena_01, lotofacil.Dezena_02, lotofacil.Dezena_03, lotofacil.Dezena_04, lotofacil.Dezena_05,
+                            lotofacil.Dezena_06, lotofacil.Dezena_07, lotofacil.Dezena_08, lotofacil.Dezena_09, lotofacil.Dezena_10,
+                            lotofacil.Dezena_11, lotofacil.Dezena_12, lotofacil.Dezena_13, lotofacil.Dezena_14, lotofacil.Dezena_15};
+                                        
+                        foreach(int resultado in dezenas)
                         {
-                            lotofacil.TotalPar = +1;
-                        }
-                        else
-                        {
-                            lotofacil.TotalImpar = +1;
-                        }
-                        if (lotofacil.Dezena_02 % 2 == 0)
-                        {
-                            lotofacil.TotalPar = +1;
-                        }
-                        else
-                        {
-                            lotofacil.TotalImpar = +1;
-                        }
-                        if (lotofacil.Dezena_03 % 2 == 0)
-                        {
-                            lotofacil.TotalPar = +1;
-                        }
-                        else
-                        {
-                            lotofacil.TotalImpar = +1;
-                        }
-                        if (lotofacil.Dezena_04 % 2 == 0)
-                        {
-                            lotofacil.TotalPar = +1;
-                        }
-                        else
-                        {
-                            lotofacil.TotalImpar = +1;
-                        }
-                        if (lotofacil.Dezena_05 % 2 == 0)
-                        {
-                            lotofacil.TotalPar = +1;
-                        }
-                        else
-                        {
-                            lotofacil.TotalImpar = +1;
-                        }
-                        if (lotofacil.Dezena_06 % 2 == 0)
-                        {
-                            lotofacil.TotalPar = +1;
-                        }
-                        else
-                        {
-                            lotofacil.TotalImpar = +1;
-                        }
-                        if (lotofacil.Dezena_07 % 2 == 0)
-                        {
-                            lotofacil.TotalPar = +1;
-                        }
-                        else
-                        {
-                            lotofacil.TotalImpar = +1;
-                        }
-                        if (lotofacil.Dezena_08 % 2 == 0)
-                        {
-                            lotofacil.TotalPar = +1;
-                        }
-                        else
-                        {
-                            lotofacil.TotalImpar = +1;
-                        }
-                        if (lotofacil.Dezena_09 % 2 == 0)
-                        {
-                            lotofacil.TotalPar = +1;
-                        }
-                        else
-                        {
-                            lotofacil.TotalImpar = +1;
-                        }
-                        if (lotofacil.Dezena_10 % 2 == 0)
-                        {
-                            lotofacil.TotalPar = +1;
-                        }
-                        else
-                        {
-                            lotofacil.TotalImpar = +1;
-                        }
-                        if (lotofacil.Dezena_11 % 2 == 0)
-                        {
-                            lotofacil.TotalPar = +1;
-                        }
-                        else
-                        {
-                            lotofacil.TotalImpar = +1;
-                        }
-                        if (lotofacil.Dezena_12 % 2 == 0)
-                        {
-                            lotofacil.TotalPar = +1;
-                        }
-                        else
-                        {
-                            lotofacil.TotalImpar = +1;
-                        }
-                        if (lotofacil.Dezena_13 % 2 == 0)
-                        {
-                            lotofacil.TotalPar = +1;
-                        }
-                        else
-                        {
-                            lotofacil.TotalImpar = +1;
-                        }
-                        if (lotofacil.Dezena_14 % 2 == 0)
-                        {
-                            lotofacil.TotalPar = +1;
-                        }
-                        else
-                        {
-                            lotofacil.TotalImpar = +1;
-                        }
-                        if (lotofacil.Dezena_15 % 2 == 0)
-                        {
-                            lotofacil.TotalPar = +1;
-                        }
-                        else
-                        {
-                            lotofacil.TotalImpar = +1;
+                            if(resultado %2 == 0)
+                            {
+                                lotofacil.TotalPar = +1;
+                            }
+                            else
+                            {
+                                lotofacil.TotalImpar = +1;
+                            }
                         }
                         #endregion
-                        
-                        concursos.Add(lotofacil);
-                    }
-                }
-                catch (Exception ex)
-                {
 
-                }
+                        #region//Primo
+                        foreach (int primo in dezenas)
+                        {
+                            if(primo > 1)
+                            {
+                                //retorna true se for primo
+                                int vPrimo = 0;
 
+                                for (int i = 1; i <= primo; i++)
+                                {
+                                    if (primo % i == 0)
+                                    {
+                                        vPrimo++;
+                                    }                                 
 
+                                }
 
-                con.Close();
+                                if (vPrimo == 2)
+                                {
+                                    lotofacil.TotalPrimo = +1;
+                                }
+                            }
+                           
+                        }
+                        #endregion
+                        concursos.Add(lotofacil);                       
+                    }                                                   
+                }                                                     
+                catch (Exception ex)                                    
+                {                                                    
+                                                                        
+                }                                                       
+                                                                        
+                                                                        
+                                                                        
+                con.Close();                                            
             }
             return concursos;
         }
