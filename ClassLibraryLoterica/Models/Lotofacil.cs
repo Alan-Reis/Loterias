@@ -54,7 +54,18 @@ namespace ClassLibraryLoterica.Models
                 _totalImpar = _totalImpar + value;
             }
         }
-        public int TotalPrimo { get; set; }
+        public int TotalPrimo
+        {
+            get
+            {
+                return _totalPrimo;
+            }
+            set
+            {
+                _totalPrimo = _totalPrimo + value;
+            }
+        }
+        //Total de pontos realizado em cada concurso
         public int Total
         {
             get
